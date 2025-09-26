@@ -20,6 +20,12 @@ services:
         context: C:\Users\josem\Desktop\Repositories\Microservices-E-Commerce-App\EShop-Microservices\src\Services\Basket\Basket.API
         dockerfile: Dockerfile
 
+    discount.grpc:
+      image: ${DOCKER_REGISTRY-}discountgrpc
+      build:
+        context: C:\Users\josem\Desktop\Repositories\Microservices-E-Commerce-App\EShop-Microservices\src\Services\Discount\Discount.gRPC
+        dockerfile: Dockerfile
+
 volumes:
     postgres_catalog:
     postgres_basket:
