@@ -7,7 +7,7 @@ namespace Ordering.Domain.ValueObjects
     {
         public Guid Value { get; }
 
-        private OrderId(Guid value ) => Value = value;
+        public OrderId(Guid value ) => Value = value;
 
         public static OrderId Of(Guid value)
         {

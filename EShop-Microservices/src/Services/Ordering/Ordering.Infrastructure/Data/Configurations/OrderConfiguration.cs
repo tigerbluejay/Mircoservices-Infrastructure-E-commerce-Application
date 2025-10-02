@@ -14,6 +14,11 @@ namespace Ordering.Infrastructure.Data.Configurations
         {
             builder.HasKey(o => o.Id); // PK
 
+            builder.Property(o => o.Status)
+                .HasConversion<int>()// store as int
+                .HasDefaultValue(OrderStatus.Draft)
+                .IsRequired();
+
             builder.Property(o => o.Id).HasConversion( // Value Object Conversion
                 orderId => orderId.Value,
                 dbId => OrderId.Of(dbId));
@@ -68,11 +73,6 @@ namespace Ordering.Infrastructure.Data.Configurations
                 paymentBuilder.Property(p => p.PaymentMethod);
                 // Complex Type
             });
-
-            builder.Property(o => o.Status).HasDefaultValue(OrderStatus.Draft)
-                .HasConversion(
-                    s => s.ToString(), // Enum as string
-                    dbStatus => (OrderStatus)Enum.Parse(typeof(OrderStatus), dbStatus));
 
             builder.Property(o => o.TotalPrice);
         }

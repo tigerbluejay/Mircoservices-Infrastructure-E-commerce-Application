@@ -8,7 +8,7 @@ namespace Ordering.Application.Orders.EventHandlers
         public Task Handle(OrderUpdatedEvent notification, CancellationToken cancellationToken)
         {
             logger.LogInformation("OrderUpdatedEvent domain event handled: {DomainEvent}", notification.GetType().Name);
-            throw new NotImplementedException();
+            return Task.CompletedTask;
         }
     }
 }
