@@ -10,6 +10,9 @@ services:
 
     orderdb:
         image: mcr.microsoft.com/mssql/server
+    
+    messagebroker:
+        image: rabbitmq:3-management
 
     catalog.api:
       image: ${DOCKER_REGISTRY-}catalogapi
@@ -27,6 +30,12 @@ services:
       image: ${DOCKER_REGISTRY-}discountgrpc
       build:
         context: C:\Users\josem\Desktop\Repositories\Microservices-E-Commerce-App\EShop-Microservices\src\Services\Discount\Discount.gRPC
+        dockerfile: Dockerfile
+
+    ordering.api:
+      image: ${DOCKER_REGISTRY-}orderingapi
+      build:
+        context: C:\Users\josem\Desktop\Repositories\Microservices-E-Commerce-App\EShop-Microservices\src\Services\Ordering\Ordering.API
         dockerfile: Dockerfile
 
 volumes:

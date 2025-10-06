@@ -15,10 +15,10 @@ namespace Ordering.Domain.ValueObjects
             {
                 throw new DomainException("OrderName value cannot be empty.");
             }
-            if (value.Length != DefaultLength)
-            {
-                throw new DomainException($"OrderName value must be {DefaultLength} characters long.");
-            }
+            //if (value.Length != DefaultLength)
+            //{
+            //    throw new DomainException($"OrderName value must be {DefaultLength} characters long.");
+            //}
             return new OrderName(value);
         }
     }

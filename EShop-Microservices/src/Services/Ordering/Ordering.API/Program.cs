@@ -1,3 +1,4 @@
+using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Http.Json;
 using Ordering.API;
 using Ordering.Application;
@@ -19,7 +20,22 @@ builder.Services.Configure<JsonOptions>(options =>
     options.SerializerOptions.Converters.Add(new JsonStringEnumConverter());
 });
 
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenAnyIP(8080); // HTTP
+    options.ListenAnyIP(8081, listenOptions =>
+    {
+        listenOptions.UseHttps(); // Uses mounted .pfx
+    });
+});
+
 var app = builder.Build();
+
+app.MapHealthChecks("/health",
+    new Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions
+    {
+        ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+    });
 
 // Configure the HTTP request pipeline.
 app.UseApiServices();
@@ -28,5 +44,8 @@ if (app.Environment.IsDevelopment())
 {
     await app.InitializeDatabaseAsync();
 }
+
+
+app.Run();
 
 app.Run();

@@ -4,8 +4,14 @@ using MassTransit;
 
 namespace Basket.API.Basket.CheckoutBasket
 {
-    public record CheckoutBasketCommand(BasketCheckoutDTO BasketCheckoutDTO) 
-        : ICommand<CheckoutBasketResult>;
+    // public record CheckoutBasketCommand(BasketCheckoutDTO BasketCheckoutDTO) 
+    //     : ICommand<CheckoutBasketResult>;
+
+    public class CheckoutBasketCommand : ICommand<CheckoutBasketResult>
+    {
+        public BasketCheckoutDTO BasketCheckoutDTO { get; set; } = default!;
+    }
+
     public record CheckoutBasketResult(bool IsSuccess);
 
     public class CheckoutBasketCommandValidator
