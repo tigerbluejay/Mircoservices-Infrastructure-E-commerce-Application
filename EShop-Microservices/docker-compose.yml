@@ -38,6 +38,12 @@ services:
         context: C:\Users\josem\Desktop\Repositories\Microservices-E-Commerce-App\EShop-Microservices\src\Services\Ordering\Ordering.API
         dockerfile: Dockerfile
 
+    yarpapigateway:
+      image: ${DOCKER_REGISTRY-}yarpapigateway
+      build:
+        context: C:\Users\josem\Desktop\Repositories\Microservices-E-Commerce-App\EShop-Microservices\src\APIGateway\YARPAPIGateway
+        dockerfile: Dockerfile
+
 volumes:
     postgres_catalog:
     postgres_basket:
