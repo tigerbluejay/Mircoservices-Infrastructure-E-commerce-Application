@@ -1,4 +1,4 @@
-
+﻿
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -32,7 +32,23 @@ builder.Services.AddHealthChecks()
 
 var app = builder.Build();
 
+// 
+//  Wipe & reseed database on startup (development only)
+// 
+if (app.Environment.IsDevelopment())
+{
+    using var scope = app.Services.CreateScope();
+    var store = scope.ServiceProvider.GetRequiredService<IDocumentStore>();
 
+    // 1️ Wipe the Marten database completely
+    await store.Advanced.Clean.CompletelyRemoveAllAsync();
+
+    // 2️ Reseed data
+    var seeder = new CatalogInitialData();
+    await seeder.Populate(store, default);
+
+    Console.WriteLine("✅ Catalog database wiped and reseeded successfully.");
+}
 
 // Configure the HTTP request pipeline
 app.MapCarter();
