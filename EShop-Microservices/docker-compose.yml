@@ -44,6 +44,12 @@ services:
         context: C:\Users\josem\Desktop\Repositories\Microservices-E-Commerce-App\EShop-Microservices\src\APIGateway\YARPAPIGateway
         dockerfile: Dockerfile
 
+    shopping.web:
+        image: ${DOCKER_REGISTRY-}shoppingweb
+        build:
+            context: C:\Users\josem\Desktop\Repositories\Microservices-E-Commerce-App\EShop-Microservices\src\WebApp\Shopping.Web
+            dockerfile: Dockerfile
+
 volumes:
     postgres_catalog:
     postgres_basket:

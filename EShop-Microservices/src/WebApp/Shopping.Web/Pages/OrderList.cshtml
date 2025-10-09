@@ -29,7 +29,7 @@
                             <th scope="col">First Name</th>
                             <th scope="col">Last Name</th>
                             <th scope="col">Email</th>
-                            <th scope="col">AddressLine</th>
+                            <th scope="col">Address Line</th>
                             <th scope="col">Card Name</th>
                             <th scope="col">Order Status</th>
                             <th scope="col" class="text-right">TotalPrice</th>
@@ -45,6 +45,7 @@
                                 <td>@order.ShippingAddress.FirstName</td>
                                 <td>@order.ShippingAddress.LastName</td>
                                 <td>@order.ShippingAddress.EmailAddress</td>
+                                <td>@order.ShippingAddress.AddressLine</td>
                                 <td>@order.Payment.CardName</td>
                                 <td>@order.Status</td>
                                 <td class="text-right">@order.OrderItems.Sum(x => x.Price * x.Quantity) $</td>
