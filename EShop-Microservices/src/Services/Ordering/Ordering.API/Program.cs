@@ -37,14 +37,13 @@ app.MapHealthChecks("/health",
         ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
     });
 
-// Configure the HTTP request pipeline.
-app.UseApiServices();
-
 if (app.Environment.IsDevelopment())
 {
     await app.InitializeDatabaseAsync();
 }
 
+// Configure the HTTP request pipeline.
+app.UseApiServices();
 
 app.Run();
 
