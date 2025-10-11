@@ -1,6 +1,5 @@
 # 🏪 E-Commerce Platform
 
-Hello, thanks for watching.
 This is a demonstration of Neil Cummings’s .NET Microservices E-Commerce Application. I implemented the application step by step, and all the code is available on my GitHub account at github.com/tigerbluejay
 
 Building this app helped me understand microservice architecture, asynchronous communication, and containerized orchestration using Docker. It also gave me practical experience working with multiple .NET project types and integrating them within a distributed environment.
