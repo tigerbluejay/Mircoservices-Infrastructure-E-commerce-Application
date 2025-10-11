@@ -53,8 +53,8 @@ Microservices-Infrastructure-E-commerce-Application/
 │   │   ├── Discount.API/         # Discounts (SQLite)
 │   │   ├── Ordering.API/         # Orders and checkout (SQL Server)
 │   ├── BuildingBlocks/           # Shared libraries (Common, EventBus, etc.)
-│   ├── ApiGateways/
-│   └── WebApps/
+│   ├── ApiGateway/
+│   └── WebApp/
 ├── docker-compose.yml            # Container orchestration
 ├── docker-compose.override.yml
 ├── README.md
