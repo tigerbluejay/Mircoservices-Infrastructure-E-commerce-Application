@@ -43,15 +43,15 @@ This application was built entirely in .NET 8 and demonstrates a modern, modular
 - Docker & Docker Compose
 
 ## 🗂 Project Structure
+```plaintext
 Microservices-Infrastructure-E-commerce-Application/
 │
 ├── src/
 │   ├── Services/
-│   │   ├── Catalog.API/          # Product catalog (MongoDB)
-│   │   ├── Basket.API/           # Shopping basket (Redis)
-│   │   ├── Discount.API/         # Discounts and coupons (PostgreSQL)
-│   │   ├── Ordering.API/         # Orders and checkout (PostgreSQL)
-│   │   └── Identity.API/         # Authentication and authorization
+│   │   ├── Catalog.API/          # Product catalog (PostgreSQL)
+│   │   ├── Basket.API/           # Shopping basket (PostgreSQL)
+│   │   ├── Discount.API/         # Discounts (SQLite)
+│   │   ├── Ordering.API/         # Orders and checkout (SQL Server)
 │   ├── BuildingBlocks/           # Shared libraries (Common, EventBus, etc.)
 │   ├── ApiGateways/
 │   └── WebApps/
@@ -59,6 +59,7 @@ Microservices-Infrastructure-E-commerce-Application/
 ├── docker-compose.override.yml
 ├── README.md
 └── .env
+```
 
 ## ⚙ Getting Started
 ### Clone the Repository
